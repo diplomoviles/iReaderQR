@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.amaurypm.ireaderqr.MainFragment"
+        android:label="@string/ireader"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.amaurypm.ireaderqr.ScannerFragment"
+        android:label="QR Scanner"
+        tools:layout="@layout/fragment_scanner" >
+        <action
+            android:id="@+id/action_scannerFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
 </navigation>
